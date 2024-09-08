@@ -17,17 +17,17 @@ app.use(express.urlencoded({ extended: true }));
 const PORT = process.env.PORT || 3001
 
 // Static middleware pointing to the public folder
-app.use(express.static('public'));
+app.use(express.static('src/public'));
 
 // Create Express.js routes for default '/', '/send' and '/routes' endpoints
 //app.get('/', (req, res) => res.send('Navigate to /send or /routes'));
 
 app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/index.html'))
+  res.sendFile(path.join(__dirname, 'src/public/index.html'))
 );
 
 app.get('/notes', (req, res) =>
-    res.sendFile(path.join(__dirname, 'public/notes.html'))
+    res.sendFile(path.join(__dirname, 'src/public/notes.html'))
 );
 
 app.get('/api/notes', (req, res) =>
